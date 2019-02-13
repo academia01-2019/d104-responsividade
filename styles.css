@@ -25,6 +25,7 @@ header nav {
   display: none;
 }
 
+/* :nth-child(x) é um seletor que busca elementos que sejam da mesma tag definida e que sejam o X filho de seu pai. No exemplo abaixo, o seletor pega somente uma tag <a> que seja, obrigatoriamente, a primeira filha de nav. Caso haja outro filho antes desse <a>, esse seletor não irá se aplicar a ninguém. */
 header nav a:nth-child(1) {
   font-size: 14pt;
 }
@@ -72,6 +73,15 @@ main {
 }
 
 /* Media Query */
+/* 
+Nós utilizamos media queries para definir condições para que determinados blocos de estilização sejam aplicados. A estrutura de declaração de um media query é:
+
+@media(CONDIÇÃO) {
+  *estilos específicos a serem aplicados*
+}
+
+Quando falamos de desenvolvimento mobile-first, as definições de estilo que vem antes do seu media query tem relação com como a versão do site mobile (em celulares) funciona. Quando você cria media queries, você precisa definir neles quais estilos que você gostaria de mudar em determinadas condições. Seguindo os exemplos abaixo, nós temos caso onde, por exemplo, queremos definir quando a nav e o menu-hamburguer devem aparecer. Nossas condições são todas utilizando a propriedade min-width, que quer dizer que a partir do valor definido para o min-width, aqueles estilos serão aplicados.
+*/
 
 /* Breakpoint para Tablet */
 @media(min-width: 768px) {
@@ -84,6 +94,10 @@ main {
   }
 }
 
+/* 
+Sendo assim, no query acima, definimos que a partir de uma largura de tela de 768px, a nav terá display: block (que deixa visível) e o menu-hamburguer, display: none (que deixa invisível).
+ */
+
 /* Breakpoint para Notebooks pequenos */
 @media(min-width: 992px) {
   .grid {
@@ -95,6 +109,8 @@ main {
 
   .sidebar {
     border-radius: 25px;
+    /* A propriedade box-shadow serve para criar sombras no seu elemento. Seus parâmetros são: 
+    deslocamento horizontal da sombra, deslocamento vertical da sombra, quão borrada ela ficará, quanto ela se espalhará, e qual sua cor  */
     box-shadow: 1px 1px 15px 2px rgba(0, 0, 0, 0.1);
     margin: 5px;
   }
@@ -105,6 +121,10 @@ main {
   }
 }
 
+/* 
+Já nesse query, nós definimos que o nosso elemento de classe sidebar irá ficar na lateral da página como uma aba "flutuante", posicionando-o com grid e adicionando box-shadow para fazer uma pequena sombra.
+*/
+
 /* Breakpoint para Notebooks grandes e Desktop */
 @media(min-width: 1200px) {
  main {
@@ -112,3 +132,5 @@ main {
   max-width: 1200px;
  } 
 }
+
+/* Por fim, definimos que nossa tag main, a partir de 1200px de largura, não deverá mais crescer (utilizando max-width), e utilizará margin: auto para se centralizar */
